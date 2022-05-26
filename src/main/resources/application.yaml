@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url:  jdbc:mysql://localhost:3306/graphql
+    username: root
+    password: fireice22072001
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+graphql:
+  servlet:
+    maxQueryDepth: 5
+  playground:
+    tabs:
+      - name: Linh test GraphQL
+        query: classpath:playground/bank_account.graphql
+        variables: classpath:playground/bank_account_variables.json
+    headers:
+      Authorization: Bearer TOKEN
